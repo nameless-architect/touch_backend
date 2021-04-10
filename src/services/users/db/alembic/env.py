@@ -1,10 +1,8 @@
-
 from logging.config import fileConfig
 
+from alembic import context
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
-
-from alembic import context
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -19,12 +17,15 @@ fileConfig(config.config_file_name)
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
 import sys
+
 print(['', '..'] + sys.path[1:])
 sys.path = ['', '..', 'C:\\Projects\\touch_backend\\src\\'] + sys.path[1:]
-from services.communication.db.models.message import Message
-from services.communication.db.models.payable_meeting_link import PayableMeetingLink
-target_metadata = [PayableMeetingLink.Base.metadata,
-                   Message.Base.metadata]
+from services.users.db.models.base import UserExpertise
+from services.users.db.models.base import User
+from services.users.db.models.base import Base
+
+target_metadata = Base.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

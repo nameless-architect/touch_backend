@@ -1,8 +1,6 @@
 from sqlalchemy import Column, DateTime, String, Integer, func
 
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from services.users.db.models.base import Base
 
 
 class Message(Base):

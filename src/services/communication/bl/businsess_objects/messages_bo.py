@@ -7,7 +7,7 @@ class MessagesBO:
         self._messages_dal = message_dal
 
     def create_personal_message(self, from_uid: str, to_uid: str, content: str, content_type: str):
-        pass
+        return self._messages_dal.create_personal_messages(from_uid, to_uid, content, content_type)
 
     def get_messages_sent_to_user(self, to_uid: str):
         pass
